@@ -15,10 +15,17 @@ O projeto visa automatizar o processamento de reclamações enviadas via API. Ca
 
 Tudo isso será gerenciado com **Terraform**, garantindo reprodutibilidade, controle de versão e automação da infraestrutura.
 
-```
+## 🧩 Arquitetura Inicial
+<table>
+  <tr>
+    <td align="center">
+      <img src="./arquitetura.png" alt="Arquitetura" width="400"/><br>
+  </tr>
+</table>
 
 ##  Estrutura do Projeto(em construção)
 
+```
 projeto-serverless/
 ├── lambda_src/
 │   ├── handler.py
@@ -29,16 +36,25 @@ projeto-serverless/
 │   ├── dynamodb/
 │   ├── iam/
 │   │   ├── lambda_role.tf
-│   │   └── outputs.tf
+│   │   ├── outputs.tf
+│   │   ├── step_function_role.tf
+│   │   └── variables.tf
 │   ├── lambda/
 │   │   ├── lambda.tf
+│   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── stepfunctions/
+│   │   ├── state_machine.tf
+│   │   └── variables.tf
 ├── venv/
 ├── .gitignore
+├── .terraform.lock.hcl
+├── arquitetura.png
+├── foto-campos.png
 ├── main.tf
 ├── outputs.tf
 ├── variables.tf
+├── README.md
 ├── zip_lambda.sh
 └── README.md
 
@@ -51,7 +67,7 @@ projeto-serverless/
 - [x] Criação de role e política IAM para Lambda
 - [x] Script de empacotamento da Lambda (`zip_lambda.sh`)
 - [x] Backend remoto com **S3** e **DynamoDB** (state lock)
-
+- [x] Step functions 
 ---
 
 ## 🚧 Em Construção
