@@ -1,2 +1,7 @@
+# Terraform local state
 .terraform/
-.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+crash.log
+terraform.tfvars
+terraform.tfvars.json
