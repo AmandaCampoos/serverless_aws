@@ -65,14 +65,20 @@ projeto-serverless/
 
 ---
 
-##  Desenvolvedora
+## 👩‍💻 Desenvolvedora
 
-| ![Amanda ](./foto.jpg) |  
-|:--:|  
-| **Amanda Ximenes**<br>Desenvolvedora jr |
+<table>
+  <tr>
+    <td align="center">
+      <img src="./foto-campos.png" alt="Amanda" width="200"/><br>
+      <strong>Amanda Ximenes</strong><br>
+      Desenvolvedora jr
+    </td>
+  </tr>
+</table>
 
-📧 **Email:** amandacamposx2@gmail.com.com  
-🔗 **LinkedIn:** [linkedin.com/in/amandaximenes](https://www.linkedin.com/in/amanda-ximenes-a02ab8266/)  
+📧 **Email:** amandacamposx2@gmail.com  
+🔗 **LinkedIn:** [linkedin.com/in/amandaximenes](https://www.linkedin.com/in/amanda-ximenes-a02ab8266/)
 
 ---
 
