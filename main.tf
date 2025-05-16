@@ -22,8 +22,13 @@ provider "aws" {
 
 # Módulos de infraestrutura
 module "iam" {
-  source = "./terraform/iam"
+  source             = "./terraform/iam"
+  lambda_policy_name = "lambda_policy_reclamacao"
+  lambda_role_name   = "lambda_exec_role_reclamacao"
+  lambda_arn         = module.lambda.lambda_arn
 }
+
+
 
 module "lambda" {
   source = "./terraform/lambda"
@@ -39,8 +44,12 @@ module "dynamodb" {
 }
 
 module "stepfunctions" {
-  source = "./terraform/stepfunctions"
+  source                = "./terraform/stepfunctions"
+  lambda_arn            = module.lambda.lambda_arn
+  step_function_role_arn = module.iam.step_function_role_arn
 }
+
+
 
 module "cloudwatch" {
   source = "./terraform/cloudwatch"
