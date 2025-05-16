@@ -4,8 +4,9 @@ resource "aws_lambda_function" "reclamacao_lambda" {
   role = var.lambda_role_arn
   handler       = "handler.lambda_handler"
 
-  filename         = "${path.module}/../lambda_src/lambda.zip"
-  source_code_hash = filebase64sha256("${path.module}/../../lambda_src/lambda.zip")
+ filename         = "${path.module}/../../lambda_src/lambda.zip"
+source_code_hash = filebase64sha256("${path.module}/../../lambda_src/lambda.zip")
+
 
   timeout = 10
 }
