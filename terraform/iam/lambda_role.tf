@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda_exec_role" {
-  name = "lambda_exec_role_reclamacao"
+  name = var.lambda_role_name
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -16,7 +16,7 @@ resource "aws_iam_role" "lambda_exec_role" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name        = "lambda_policy_reclamacao"
+  name        = var.lambda_policy_name
   description = "Permissões para Lambda processar reclamações"
   policy      = jsonencode({
     Version = "2012-10-17",
