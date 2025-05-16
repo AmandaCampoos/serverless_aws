@@ -15,7 +15,7 @@ O projeto visa automatizar o processamento de reclamações enviadas via API. Ca
 
 Tudo isso será gerenciado com **Terraform**, garantindo reprodutibilidade, controle de versão e automação da infraestrutura.
 
----
+```
 
 ##  Estrutura do Projeto(em construção)
 
@@ -43,7 +43,7 @@ projeto-serverless/
 └── README.md
 
 
----
+```
 
 ##  Funcionalidades Já Implementadas
 
