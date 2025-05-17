@@ -19,7 +19,7 @@ Tudo isso será gerenciado com **Terraform**, garantindo reprodutibilidade, cont
 <table>
   <tr>
     <td align="center">
-      <img src="./arquitetura.png" alt="Arquitetura" width="400"/><br>
+      <img src="./arquitetura_atualizada.png" alt="Arquitetura" width="400"/><br>
   </tr>
 </table>
 
@@ -32,7 +32,14 @@ projeto-serverless/
 │   └── lambda.zip
 ├── terraform/
 │   ├── apigateway/
+│   │   ├── apigateway.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── cloudwatch/
+│   │   ├── alarms.tf
+│   │   ├── dashboard.tf
+│   │   ├── logs.tf
+│   │   └── variables.tf
 │   ├── dynamodb/
 │   ├── iam/
 │   │   ├── lambda_role.tf
@@ -54,11 +61,8 @@ projeto-serverless/
 ├── main.tf
 ├── outputs.tf
 ├── variables.tf
-├── README.md
 ├── zip_lambda.sh
 └── README.md
-
-
 ```
 
 ##  Funcionalidades Já Implementadas
@@ -68,9 +72,10 @@ projeto-serverless/
 - [x] Script de empacotamento da Lambda (`zip_lambda.sh`)
 - [x] Backend remoto com **S3** e **DynamoDB** (state lock)
 - [x] Step functions 
+- [x] Apigateway Rest
 ---
 
-## 🚧 Em Construção
+##  Em Construção
 
 - Integração com API Gateway
 - Criação da Lambda com lógica de análise de reclamação
@@ -81,7 +86,7 @@ projeto-serverless/
 
 ---
 
-## 👩‍💻 Desenvolvedora
+##  Desenvolvedora
 
 <table>
   <tr>
