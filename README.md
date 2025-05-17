@@ -1,4 +1,10 @@
-#   Análise de Reclamações com AWS e Terraform
+<div style="text-align: center;">
+  <img src="./logo.png" alt="logo" width="300"/>
+</div>
+
+
+
+##   Análise de Reclamações com AWS e Terraform
 
 Este repositório contém a infraestrutura como código (IaC) de um sistema serverless desenvolvido com **AWS** e **Terraform**, com o objetivo de processar e analisar reclamações de forma automatizada.
 
@@ -15,13 +21,11 @@ O projeto visa automatizar o processamento de reclamações enviadas via API. Ca
 
 Tudo isso será gerenciado com **Terraform**, garantindo reprodutibilidade, controle de versão e automação da infraestrutura.
 
-## 🧩 Arquitetura Inicial
-<table>
-  <tr>
-    <td align="center">
-      <img src="./arquitetura_atualizada.png" alt="Arquitetura" width="400"/><br>
-  </tr>
-</table>
+##  Arquitetura Inicial
+<div style="text-align: center;">
+  <img src="./arquitetura_atualizada.png" alt="logo" width="400"/>
+</div>
+
 
 ##  Estrutura do Projeto(em construção)
 
@@ -87,16 +91,13 @@ projeto-serverless/
 ---
 
 ##  Desenvolvedora
+<div style="text-align: center;">
+  <img src="./foto-campos.png" alt="Amanda" width="200"/><br>
+  <strong>Amanda Ximenes</strong><br>
+  Desenvolvedora Jr
+  
+</div>
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="./foto-campos.png" alt="Amanda" width="200"/><br>
-      <strong>Amanda Ximenes</strong><br>
-      Desenvolvedora jr
-    </td>
-  </tr>
-</table>
 
 📧 **Email:** amandacamposx2@gmail.com  
 🔗 **LinkedIn:** [linkedin.com/in/amandaximenes](https://www.linkedin.com/in/amanda-ximenes-a02ab8266/)
@@ -104,6 +105,5 @@ projeto-serverless/
 ---
 
 > Projeto acadêmico com fins de aprendizado e portfólio. Infraestrutura provisionada com Terraform, código organizado em módulos e boas práticas de automação.
-
 
 
