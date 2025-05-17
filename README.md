@@ -1,7 +1,7 @@
-<div style="text-align: center;">
-  <img src="./logo.png" alt="logo" width="300"/>
-</div>
 
+<div style="text-align: center;">
+  <img src="logo.png" alt="logo" width="400"/>
+</div>
 
 
 ##   Análise de Reclamações com AWS e Terraform
@@ -91,12 +91,13 @@ projeto-serverless/
 ---
 
 ##  Desenvolvedora
+
 <div style="text-align: center;">
-  <img src="./foto-campos.png" alt="Amanda" width="200"/><br>
+  <img src="foto-campos.png" alt="Amanda" width="200"/><br>
   <strong>Amanda Ximenes</strong><br>
   Desenvolvedora Jr
-  
 </div>
+
 
 
 📧 **Email:** amandacamposx2@gmail.com  
