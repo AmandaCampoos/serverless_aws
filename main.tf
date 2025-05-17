@@ -37,7 +37,14 @@ module "lambda" {
 
 module "apigateway" {
   source = "./terraform/apigateway"
+
+  lambda_name = module.lambda.lambda_name
+  lambda_arn  = module.lambda.lambda_arn
+  region      = var.region
 }
+
+
+
 
 module "dynamodb" {
   source = "./terraform/dynamodb"
