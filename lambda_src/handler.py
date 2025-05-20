@@ -3,9 +3,14 @@ import boto3
 import uuid
 from datetime import datetime
 
-# Inicializa o recurso do DynamoDB
+# Inicializa os recursos do DynamoDB e SNS
 dynamodb = boto3.resource('dynamodb')
+sns = boto3.client('sns')
+
 table = dynamodb.Table('reclamacoes')
+
+# Substitua pelo ARN real do seu tópico SNS
+SNS_TOPIC_ARN = "arn:aws:sns:us-east-1:746669239591:topico-reclamacoes"
 
 def lambda_handler(event, context):
     print("Evento recebido:", event)  # Log para CloudWatch
@@ -26,6 +31,14 @@ def lambda_handler(event, context):
         # Salva no DynamoDB
         response = table.put_item(Item=item)
         print("Resposta do DynamoDB:", response)
+
+        # Envia notificação SNS
+        sns_response = sns.publish(
+            TopicArn=SNS_TOPIC_ARN,
+            Subject="📬 Nova Reclamação Recebida",
+            Message=f"Nome: {item['nome']}\nEmail: {item['email']}\nMensagem: {item['mensagem']}\nData: {item['data_envio']}"
+        )
+        print("Resposta do SNS:", sns_response)
 
         return {
             'statusCode': 200,
