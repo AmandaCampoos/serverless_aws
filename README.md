@@ -45,6 +45,9 @@ projeto-serverless/
 │   │   ├── logs.tf
 │   │   └── variables.tf
 │   ├── dynamodb/
+│   │   ├── dynamodb.tf
+│   │   ├── outputs.tf
+│   │   └── variables.tf
 │   ├── iam/
 │   │   ├── lambda_role.tf
 │   │   ├── outputs.tf
@@ -54,9 +57,16 @@ projeto-serverless/
 │   │   ├── lambda.tf
 │   │   ├── outputs.tf
 │   │   └── variables.tf
+│   ├── sns/
+│   │   ├── outputs.tf
+│   │   ├── subscription.tf
+│   │   ├── topic.tf
+│   │   └── variables.tf
 │   ├── stepfunctions/
 │   │   ├── state_machine.tf
 │   │   └── variables.tf
+│   ├── providers.tf
+│   └── versions.tf
 ├── venv/
 ├── .gitignore
 ├── .terraform.lock.hcl
@@ -68,6 +78,31 @@ projeto-serverless/
 ├── zip_lambda.sh
 └── README.md
 ```
+## Notificações com Amazon SNS
+
+O projeto utiliza o **Amazon SNS (Simple Notification Service)** para enviar notificações por e-mail sempre que uma nova reclamação é registrada.
+
+### Como funciona:
+
+- Um tópico SNS é criado via Terraform.
+- Um e-mail é inscrito como assinante desse tópico.
+- Após uma reclamação ser registrada no DynamoDB, a Lambda publica uma mensagem no tópico SNS.
+- O assinante (e-mail) recebe os detalhes da reclamação automaticamente.
+
+> ⚠️ Atenção: é necessário **confirmar a assinatura do e-mail** clicando no link enviado pela AWS após o `terraform apply`.
+
+#### Exemplo de notificação enviada 
+```
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "mensagem": "Estou com problemas no serviço.",
+  "data_envio": "2025-05-20T18:22:15.134Z"
+}
+```
+
+
 
 ##  Funcionalidades Já Implementadas
 
@@ -76,16 +111,15 @@ projeto-serverless/
 - [x] Script de empacotamento da Lambda (`zip_lambda.sh`)
 - [x] Backend remoto com **S3** e **DynamoDB** (state lock)
 - [x] Step functions 
-- [x] Apigateway Rest
+- [x] Integração com API Gateway 
+- [x] Notificação com SNS
 ---
 
 ##  Em Construção
 
-- Integração com API Gateway
 - Criação da Lambda com lógica de análise de reclamação
 - Configuração do DynamoDB (tabela de reclamações)
 - Orquestração com Step Functions
-- Notificações com SNS
 - Uso de modelos de IA com Bedrock ou Comprehend
 
 ---
