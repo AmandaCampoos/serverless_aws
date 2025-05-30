@@ -2,7 +2,7 @@ import json
 import boto3
 import uuid
 from datetime import datetime
-from sentiment_analysis import detectar_sentimento  # <<< importando a lógica separada
+from sentiment_analysis import detectar_sentimento
 from classification_analysis import classificar_tipo_reclamacao
 
 dynamodb = boto3.resource('dynamodb')
@@ -12,11 +12,20 @@ def lambda_handler(event, context):
     print("Evento recebido:", event)
 
     try:
-        body = json.loads(event.get('body', '{}'))
-        mensagem = body.get('mensagem', '')
+        if 'body' in event:
+            body = json.loads(event['body'])  # API Gateway
+        else:
+            body = event  # Execução direta/testes
 
-        # Usa a função modularizada
-        sentimento_detectado = detectar_sentimento(mensagem)
+        mensagem = body.get('mensagem', '').strip()
+
+        if not mensagem:
+            print("Mensagem vazia. Pulando análises.")
+            sentimento_detectado = "INDETERMINADO"
+            tipo_classificacao = "INDETERMINADO"
+        else:
+            sentimento_detectado = detectar_sentimento(mensagem)
+            tipo_classificacao = classificar_tipo_reclamacao(mensagem)
 
         item = {
             'id': str(uuid.uuid4()),
@@ -24,7 +33,8 @@ def lambda_handler(event, context):
             'email': body.get('email'),
             'mensagem': mensagem,
             'data_envio': datetime.utcnow().isoformat(),
-            'sentimento': sentimento_detectado
+            'sentimento': sentimento_detectado,
+            'categoria': tipo_classificacao
         }
 
         response = table.put_item(Item=item)
