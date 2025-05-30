@@ -45,10 +45,10 @@ module "apigateway" {
 
 
 
-
 module "dynamodb" {
-  source = "./terraform/dynamodb"
+  source      = "./terraform/dynamodb"
 }
+
 
 module "stepfunctions" {
   source                = "./terraform/stepfunctions"
