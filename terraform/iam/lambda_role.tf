@@ -2,11 +2,11 @@ resource "aws_iam_role" "lambda_exec_role" {
   name = var.lambda_role_name
 
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
+    Version = "2012-10-17",
     Statement = [
       {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
+        Action = "sts:AssumeRole",
+        Effect = "Allow",
         Principal = {
           Service = "lambda.amazonaws.com"
         }
@@ -17,47 +17,47 @@ resource "aws_iam_role" "lambda_exec_role" {
 
 resource "aws_iam_policy" "lambda_policy" {
   name        = var.lambda_policy_name
-  description = "Permissões para Lambda processar reclamações"
+  description = "Permissões para Lambda processar reclamações, publicar no SNS e usar Comprehend"
   policy      = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
-        Sid    = "CloudWatchLogs"
-        Effect = "Allow"
+        Sid    = "CloudWatchLogs",
+        Effect = "Allow",
         Action = [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
           "logs:PutLogEvents"
-        ]
+        ],
         Resource = "*"
       },
       {
-        Sid    = "DynamoDBAccess"
-        Effect = "Allow"
+        Sid    = "DynamoDBAccess",
+        Effect = "Allow",
         Action = [
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:Query",
           "dynamodb:UpdateItem"
-        ]
+        ],
         Resource = "*"
       },
       {
-        Sid    = "ComprehendOrBedrock"
-        Effect = "Allow"
+        Sid    = "ComprehendAndBedrockAccess",
+        Effect = "Allow",
         Action = [
           "comprehend:DetectSentiment",
           "comprehend:ClassifyDocument",
           "bedrock:InvokeModel"
-        ]
+        ],
         Resource = "*"
       },
       {
-        Sid    = "SNSPublish"
-        Effect = "Allow"
+        Sid    = "SNSPublishAccess",
+        Effect = "Allow",
         Action = [
           "sns:Publish"
-        ]
+        ],
         Resource = "*"
       }
     ]
