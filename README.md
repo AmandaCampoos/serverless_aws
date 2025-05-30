@@ -6,14 +6,14 @@
 
 ##   Análise de Reclamações com AWS e Terraform
 
-Este repositório contém a infraestrutura como código (IaC) de um sistema serverless desenvolvido com **AWS** e **Terraform**, com o objetivo de processar e analisar reclamações de forma automatizada.
+Este repositório contém a infraestrutura como código (IaC) de um sistema serverless desenvolvido com **AWS** e **Terraform**, com o objetivo de processar ,classificar e analisar reclamações de forma automatizada.
 
 ##  Objetivo
 
 O projeto visa automatizar o processamento de reclamações enviadas via API. Cada reclamação será analisada por uma função **AWS Lambda**, que poderá:
 
 - Armazenar a reclamação em uma tabela do **DynamoDB**;
-- Analisar sentimento usando **Amazon Comprehend** ou **Bedrock**;
+- Analisar sentimento usando **Amazon Comprehend** e **Bedrock**;
 - Publicar alertas via **SNS** (em casos críticos ou ofensivos);
 - Integrar com **Step Functions** para orquestrar o fluxo;
 - Registrar logs com **CloudWatch Logs**;
@@ -34,6 +34,10 @@ projeto-serverless/
 ├── lambda_src/
 │   ├── handler.py
 │   └── lambda.zip
+|   ├── sentiment_analysis.py         
+|   ├── classification_analysis.py    
+|   ├── requirements.txt              
+|   └── utils/                        
 ├── terraform/
 │   ├── apigateway/
 │   │   ├── apigateway.tf
