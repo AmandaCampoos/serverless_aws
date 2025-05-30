@@ -106,6 +106,55 @@ O projeto utiliza o **Amazon SNS (Simple Notification Service)** para enviar not
 }
 ```
 
+<div style="text-align: center;">
+  <img src="sns.jpg" alt="BD" width="200"/><br>
+</div>
+
+---
+
+### 🧠 Análise de Sentimento com Amazon Comprehend
+A função Lambda utiliza o **Amazon Comprehend** para identificar o sentimento da mensagem enviada pelo usuário.
+
+- A função `detectar_sentimento` envia o texto para o Comprehend.
+- Retornos possíveis:
+  - `POSITIVE`
+  - `NEGATIVE`
+  - `NEUTRAL`
+  - `MIXED`
+  - `INDETERMINADO` (em caso de erro ou mensagem vazia)
+
+O sentimento detectado é salvo junto com a reclamação no banco de dados.
+
+---
+
+###  Armazenamento no DynamoDB
+As reclamações são armazenadas na tabela **`reclamacoes`** do **Amazon DynamoDB** com os seguintes campos:
+
+- `id` (UUID gerado automaticamente)
+- `nome` (nome do reclamante)
+- `email` (email do reclamante)
+- `mensagem` (texto da reclamação)
+- `data_envio` (data/hora em formato ISO)
+- `sentimento` (classificação feita via Amazon Comprehend)
+
+
+<div style="text-align: center;">
+  <img src="db.png" alt="BD" width="300"/><br>
+</div>
+
+---
+
+###  Testes Realizados
+- A API foi testada com sucesso via **Postman**.
+- Os dados foram enviados corretamente para a Lambda e armazenados no **DynamoDB**.
+- Os itens estão disponíveis no console do DynamoDB, em:  
+  `Tabelas > reclamacoes > Explore table items`
+<div style="text-align: center;">
+  <img src="Postman.png" alt="BD" width="300"/><br>
+</div>
+
+---
+
 
 
 ##  Funcionalidades Já Implementadas
@@ -117,14 +166,11 @@ O projeto utiliza o **Amazon SNS (Simple Notification Service)** para enviar not
 - [x] Step functions 
 - [x] Integração com API Gateway 
 - [x] Notificação com SNS
+- [x] Criação da Lambda com lógica de análise de reclamação
+- [X] Configuração do DynamoDB (tabela de reclamações)
+- [x] Orquestração com Step Functions
+- [x] Uso de modelos de IA com  Comprehend
 ---
-
-##  Em Construção
-
-- Criação da Lambda com lógica de análise de reclamação
-- Configuração do DynamoDB (tabela de reclamações)
-- Orquestração com Step Functions
-- Uso de modelos de IA com Bedrock ou Comprehend
 
 ---
 
