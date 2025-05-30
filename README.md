@@ -112,7 +112,7 @@ O projeto utiliza o **Amazon SNS (Simple Notification Service)** para enviar not
 
 ---
 
-### 🧠 Análise de Sentimento com Amazon Comprehend
+###  Análise de Sentimento com Amazon Comprehend
 A função Lambda utiliza o **Amazon Comprehend** para identificar o sentimento da mensagem enviada pelo usuário.
 
 - A função `detectar_sentimento` envia o texto para o Comprehend.
@@ -157,7 +157,7 @@ As reclamações são armazenadas na tabela **`reclamacoes`** do **Amazon Dynamo
 
 
 
-##  Funcionalidades Já Implementadas
+##  Funcionalidades Implementadas
 
 - [x] Estrutura modular com Terraform
 - [x] Criação de role e política IAM para Lambda
@@ -172,7 +172,6 @@ As reclamações são armazenadas na tabela **`reclamacoes`** do **Amazon Dynamo
 - [x] Uso de modelos de IA com  Comprehend
 ---
 
----
 
 ##  Desenvolvedora
 
