@@ -1,6 +1,6 @@
 
 <div style="text-align: center;">
-  <img src="logo.png" alt="logo" width="400"/>
+  <img src="logo.png" alt="logo" width="300"/>
 </div>
 
 
@@ -107,7 +107,7 @@ O projeto utiliza o **Amazon SNS (Simple Notification Service)** para enviar not
 ```
 
 <div style="text-align: center;">
-  <img src="sns.jpg" alt="BD" width="200"/><br>
+  <img src="sns.jpg" alt="BD" width="400"/><br>
 </div>
 
 ---
@@ -139,7 +139,7 @@ As reclamações são armazenadas na tabela **`reclamacoes`** do **Amazon Dynamo
 
 
 <div style="text-align: center;">
-  <img src="db.png" alt="BD" width="300"/><br>
+  <img src="db.png" alt="BD" width="400"/><br>
 </div>
 
 ---
@@ -150,7 +150,7 @@ As reclamações são armazenadas na tabela **`reclamacoes`** do **Amazon Dynamo
 - Os itens estão disponíveis no console do DynamoDB, em:  
   `Tabelas > reclamacoes > Explore table items`
 <div style="text-align: center;">
-  <img src="Postman.png" alt="BD" width="300"/><br>
+  <img src="Postman.png" alt="BD" width="400"/><br>
 </div>
 
 ---
