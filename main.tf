@@ -56,8 +56,17 @@ module "stepfunctions" {
   step_function_role_arn = module.iam.step_function_role_arn
 }
 
+module "sns" {
+  source             = "./terraform/sns"
+  notification_email = var.notification_email
+}
+
+
 
 
 module "cloudwatch" {
-  source = "./terraform/cloudwatch"
+  source              = "./terraform/cloudwatch"
+  lambda_function_name = module.lambda.lambda_name
+  sns_topic_arn        = module.sns.sns_topic_arn
+  region               = var.region
 }
